@@ -1,10 +1,12 @@
 <?php 
 namespace Minify;
 
-class Controller extends \Dsc\Controller
+class MinifyController extends \Phalcon\Mvc\Controller
 {
-    public function item()
+    public function itemAction($id)
     {
+    	echo 'item';
+/*    	
         $resource = \Base::instance()->get('PARAMS.1');
         switch ($resource)
         {
@@ -18,11 +20,12 @@ class Controller extends \Dsc\Controller
         	    return $this->findAsset($resource);
         	    break;
         }
+ */
     }
     
     public function findAsset($resource=null)
     {
-        if (empty($resource)) {
+/*        if (empty($resource)) {
             return;
         }
     
@@ -46,11 +49,14 @@ class Controller extends \Dsc\Controller
         // File not found.
         \Base::instance()->error(500);
         return;
+ */
     }
     
-    public function js()
+    public function jsAction()
     {
+    	echo 'js';
         $files = array();
+/*
         if ($prioritized_files = (array) \Base::instance()->get('dsc.minify.js')) {
             foreach ($prioritized_files as $priority=>$paths) {
                 foreach ((array)$paths as $path) {
@@ -84,10 +90,15 @@ class Controller extends \Dsc\Controller
                 echo \Web::instance()->minify($files, null, true, $paths_string);
             }
         }
+*/
     }
     
-    public function css()
+    public function cssAction()
     {
+    	echo 'css';
+
+
+ /*    	
         $files = array();
         if ($prioritized_files = (array) \Base::instance()->get('dsc.minify.css')) {
             foreach ($prioritized_files as $priority=>$paths) {
@@ -121,6 +132,7 @@ class Controller extends \Dsc\Controller
             $files = array_merge( $files, $this->getLessCssDestinations() );
             echo \Web::instance()->minify($files, null, true, $paths_string);
         }
+ */
     }
     
     /**
@@ -128,6 +140,7 @@ class Controller extends \Dsc\Controller
      */
     private function buildLessCss()
     {
+/*    	
         $f3 = \Base::instance();
         $source_files = (array) $f3->get('dsc.minify.lesscss.sources');
         $less_files = array();
@@ -152,10 +165,12 @@ class Controller extends \Dsc\Controller
         }
     
         return $less_files;
+ */
     }
     
     private function getLessCssDestinations()
     {
+/*    	
         $f3 = \Base::instance();
     
         if (!$f3->get('dsc.minify.lesscss.destinations')) {
@@ -163,5 +178,6 @@ class Controller extends \Dsc\Controller
         }
     
         return $f3->get('dsc.minify.lesscss.destinations');
+ */
     }
 }
